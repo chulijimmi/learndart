@@ -40,6 +40,20 @@ int decadeGenerate() {
 int decade = decadeGenerate();
 
 // Break and continue
+continueSomething() {
+  print('continue something');
+}
+
+checkingInput(String input) {
+  switch (input) {
+    case "COMMAND":
+      continueSomething();
+    case "HELP":
+      print("HELP");
+    default:
+      print("GIVE THE INPUT!");
+  }
+}
 
 // Branches if case
 String checkCoordinate(List<int> pair) {
@@ -62,9 +76,32 @@ void main() {
   // Non-exhaustive switch on bool?, missing case to match null possibility:
   final res = 123;
   switch (res) {
-      case true:
-        print('yes');
-      case false:
-        print('no');
-    }
+    case true:
+      print('yes');
+    case false:
+      print('no');
   }
+  checkingInput("COMMAND");
+
+  // For loops
+  for (var i = 0; i < 10; i ++) {
+    print('for $i');
+  }
+
+  // Closure inside of dart for loops
+  var callback = [];
+  for (var j = 0; j < 2; j ++) {
+    callback.add(() => print('callback $j'));
+  }
+
+  for (final k in callback) {
+    k();
+  }
+
+  // To process the value
+  final candidates = [{'name': 'Brian', 'yearOfExperience': 10}, {'name': 'Ann', 'yearOfExperience': 5}];
+
+  for (var candidate in candidates) {
+    print("Candidate ${candidate} year ");
+  }
+}
